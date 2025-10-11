@@ -5,10 +5,13 @@
   "scripts": {
     "test": "jest",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+
     "build": "tsc",
     "start": "node dist/src/app.js",
 
     "swagger": "ts-node swagger.ts"
+
+   
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
