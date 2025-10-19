@@ -1,5 +1,5 @@
 import Joi from 'joi';
-process.loadEnvFile();
+import 'dotenv/config';
 
 const envValidation = Joi.object({
   PORT: Joi.number().default(3000),
