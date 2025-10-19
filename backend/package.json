@@ -5,13 +5,9 @@
   "scripts": {
     "test": "jest",
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
-
     "build": "tsc",
     "start": "node dist/src/app.js",
-
     "swagger": "ts-node swagger.ts"
-
-   
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
@@ -27,6 +23,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.2",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "express-joi-validation": "^6.1.0",
     "joi": "^17.13.3",
