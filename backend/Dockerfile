@@ -1,23 +1,27 @@
-# 1. Imagen base con Node
+# 1️⃣ Imagen base
 FROM node:18
 
-# 2. Directorio de trabajo
+# 2️⃣ Directorio de trabajo
 WORKDIR /app
 
-# 3. Copiar package.json y package-lock.json
+# 3️⃣ Copiar package.json y package-lock.json
 COPY package*.json ./
 
-# 4. Instalar solo dependencias de producción + TypeScript para compilar
+# 4️⃣ Instalar dependencias
 RUN npm install
 
-# 5. Copiar todo el código fuente
+# 5️⃣ Copiar todo el código fuente
 COPY . .
 
-# 6. Compilar TypeScript a JS
+# 6️⃣ Generar cliente de Prisma
+RUN npx prisma generate
+
+# 7️⃣ Compilar TypeScript
 RUN npx tsc
 
-# 7. Puerto que expondrá el contenedor
-EXPOSE 8080
+# 8️⃣ Puerto que expondrá el contenedor (Render usará la variable PORT)
+ENV PORT=3000
+EXPOSE $PORT
 
-# 8. Comando por defecto para iniciar la app
+# 9️⃣ Comando por defecto para iniciar la app
 CMD ["node", "dist/src/app.js"]
