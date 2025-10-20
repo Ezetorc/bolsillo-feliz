@@ -1,3 +1,4 @@
+import { API_URL } from "@/constants/api";
 import { create } from "zustand";
 import type {
   Expense,
@@ -27,7 +28,7 @@ export const useTransaction = create<TransactionState>((set) => ({
 
     try {
       const response = await fetch(
-        "http://localhost:3000/transactions",
+        `${API_URL}/transactions`,
         options
       );
       const data: TransactionList = await response.json();

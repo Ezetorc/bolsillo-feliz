@@ -1,3 +1,4 @@
+import { API_URL } from "@/constants/api";
 import { create } from "zustand";
 import type { Transaction } from "../types/transaction";
 
@@ -22,7 +23,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     }
 
     try {
-      const response = await fetch("http://localhost:3000/transactions", {
+      const response = await fetch(`${API_URL}/transactions`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -66,7 +67,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     }));
 
     try {
-      const response = await fetch(`http://localhost:3000/transactions/${id}`, {
+      const response = await fetch(`${API_URL}/transactions/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -94,7 +95,7 @@ export const useTransactionStore = create<TransactionState>((set, get) => ({
     const id = typeof idOrTransaction === 'number' ? idOrTransaction : idOrTransaction.id;
 
     try {
-      const response = await fetch(`http://localhost:3000/transactions/${id}`, {
+      const response = await fetch(`${API_URL}/transactions/${id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
