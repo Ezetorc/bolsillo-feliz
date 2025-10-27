@@ -16,7 +16,7 @@ export type TransactionSelectFilter = SelectFilter<TransactionFilters>;
 export interface TransactionFilters {
   search: string;
   category: string;
-  payment_method: string;
+  paymentMethod: string;
   type: 'all' | 'income' | 'expense';
   date_from?: string;
   date_to?: string;

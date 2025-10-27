@@ -9,7 +9,7 @@ interface TransactionState {
   transactions: Transaction[];
   fetchTransactions: () => Promise<void>;
   deleteTransaction: (id: number | Transaction) => Promise<void>;
-  updateTransaction: (id: number, data: UpdateTransactionDto) => Promise<void>;
+  updateTransaction: (idOrTransaction: number | Transaction, data: UpdateTransactionDto) => Promise<void>;
 }
 
 export const useTransactionStore = create<TransactionState>((set, get) => ({

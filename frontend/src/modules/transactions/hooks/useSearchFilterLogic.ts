@@ -24,10 +24,10 @@ export const useSearchFilterLogic = (
       ]
     },
     {
-      key: 'payment_method' as keyof TransactionFilters,
+      key: 'paymentMethod' as keyof TransactionFilters,
       label: 'Método de Pago',
       labelId: 'payment-method-label',
-      value: filters.payment_method,
+      value: filters.paymentMethod,
       options: [
         { value: '', label: 'Todos los métodos' },
         ...paymentMethods.map((method: string) => ({ value: method, label: method }))
