@@ -1,11 +1,12 @@
-import type { Transaction, TransactionFilters } from '../types/transaction';
+import type { Transaction } from '../types/transaction';
+import type { TransactionFilters } from '../types/filter';
 import { useMemo } from 'react';
 import { useManageData } from '../hooks/useManageData';
 
 export const INITIAL_TRANSACTION_FILTERS: TransactionFilters = {
   search: '',
   category: '',
-  payment_method: '',
+  paymentMethod: '',
   type: 'all',
   date_from: '',
   date_to: '',
@@ -20,7 +21,7 @@ export const useAvailableFilters = () => {
 
     data.forEach((transaction: Transaction) => {
       if (transaction.category) categoriesSet.add(transaction.category);
-      if (transaction.payment_method) paymentMethodsSet.add(transaction.payment_method);
+      if (transaction.paymentMethod) paymentMethodsSet.add(transaction.paymentMethod);
     });
 
     return {

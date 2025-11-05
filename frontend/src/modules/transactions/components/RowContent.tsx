@@ -56,12 +56,12 @@ export const RowContent: React.FC<RowContentProps> = ({
                   onChange={(e) =>
                     setEditValues({
                       ...editValues,
-                      type: e.target.value as "income" | "expense",
+                      type: e.target.value as "INCOME" | "EXPENSE",
                     })
                   }
                 >
-                  <MenuItem value="income">Ingreso</MenuItem>
-                  <MenuItem value="expense">Gasto</MenuItem>
+                  <MenuItem value="INCOME">Ingreso</MenuItem>
+                  <MenuItem value="EXPENSE">Gasto</MenuItem>
                 </Select>
               ) : (
                 <TextField
@@ -99,7 +99,7 @@ export const RowContent: React.FC<RowContentProps> = ({
         <>
           {transactionFields.map(({ key, render }) => (
             <TableCell key={key}>
-              {render ? render(transaction[key], transaction) : transaction[key]}
+              {render ? (render as (value: any, transaction: Transaction) => React.ReactNode)(transaction[key], transaction) : transaction[key]}
             </TableCell>
           ))}
           {/* Columna Acciones */}

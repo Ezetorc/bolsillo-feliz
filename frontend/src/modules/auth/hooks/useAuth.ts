@@ -5,6 +5,7 @@ import type { RegisterFormData } from "../types/register.type";
 import type { ApiResponse, Credentials } from "../types/auth";
 import { useCallback, useEffect } from "react";
 import type { ApiError } from "@/modules/core/types/fetch";
+import { API_URL } from "@/constants/api";
 
 export const useAuth = () => {
   const user = useUserStore((state) => state.user);
@@ -47,7 +48,7 @@ export const useAuth = () => {
 
   const login = async (credentials: Credentials) => {
     try {
-      const data = await request("http://localhost:3000/auth/login", {
+      const data = await request(`${API_URL}/auth/login`, {
         method: "POST",
         body: credentials,
       });
@@ -64,7 +65,7 @@ export const useAuth = () => {
 
   const register = async (formData: RegisterFormData) => {
     try {
-      const data = await request("http://localhost:3000/auth/register", {
+      const data = await request(`${API_URL}/auth/register`, {
         method: "POST",
         body: {
           name: formData.name,
