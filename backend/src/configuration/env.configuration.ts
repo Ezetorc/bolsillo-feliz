@@ -13,6 +13,7 @@ const envValidation = Joi.object({
 const { error, value: envVars } = envValidation.validate(process.env, {
   allowUnknown: true,
   abortEarly: false
+  
 })
 
 if (error) {
