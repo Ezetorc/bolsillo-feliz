@@ -8,7 +8,7 @@ async function main() {
     update: {},
     create: {
       email: "alice@prisma.io",
-      name: "Alice",
+      name: "Alicia",
       password: "securepassword123",
      
     },
