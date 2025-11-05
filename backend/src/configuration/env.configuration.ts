@@ -5,15 +5,15 @@ const envValidation = Joi.object({
   PORT: Joi.number().default(3000),
   JWT_SECRET: Joi.string().required(),
   DATABASE_URL: Joi.string().uri().required(),
-  DATABASE_USERNAME: Joi.string().uri().required(),
-  DATABASE_PASSWORD: Joi.string().uri().required()
+  DATABASE_USERNAME: Joi.string().required(),
+  DATABASE_PASSWORD: Joi.string().required()
 })
 
 
 const { error, value: envVars } = envValidation.validate(process.env, {
   allowUnknown: true,
   abortEarly: false
-  
+
 })
 
 if (error) {
