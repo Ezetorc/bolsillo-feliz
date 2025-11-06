@@ -13,11 +13,7 @@ export const app = express();
 app
   .disable("x-powered-by")
   .use(corsMiddleware(CORS_CONFIGURATION))
-  .use(jsonMiddleware())
-   .use(
-    cors({
-      origin: `http://localhost:5173`, 
-    }))
+  .use(jsonMiddleware())   
   .use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOutput))
   .use("/transactions", TransactionRouter)
   .use("/auth", AuthRouter)
