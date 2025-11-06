@@ -1,1 +1,1 @@
-export const API_URL = 'https://bolsillo-feliz-1.onrender.com'
+export const API_URL = 'https://bolsillo-feliz.onrender.com/'
