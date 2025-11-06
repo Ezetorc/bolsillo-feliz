@@ -14,7 +14,7 @@ export const ListTransactions = ({
 }: { 
   transactions: Transaction[];
   handleDelete: (id: number) => void;
-  handleUpdate: (transaction: Transaction) => void;
+  handleUpdate: (id: number, data: Partial<Omit<Transaction, "id" | "userId">>) => void;
 }) => {
   if (!transactions || transactions.length === 0) {
     return (

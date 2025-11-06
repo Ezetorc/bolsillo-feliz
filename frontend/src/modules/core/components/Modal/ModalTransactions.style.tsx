@@ -15,7 +15,6 @@ export const modalSx: SxProps<Theme> = {
 export const cardSx: SxProps<Theme> = {
   maxHeight: { xs: "500px", md: "800px" },
   width:"400px",
-  overflowY: "auto",
   p:2
 };
 

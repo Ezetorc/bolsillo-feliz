@@ -1,3 +1,4 @@
+import { API_URL } from "@/constants/api";
 import { create } from "zustand";
 
 interface TransactionSummary {
@@ -28,7 +29,7 @@ export const useGetSummary = create<Summary>((set) => ({
 
     try {
       const response = await fetch(
-        "http://localhost:3000/transactions/summary",
+        `${API_URL}/transactions/summary`,
         options
       );
       const data = await response.json();

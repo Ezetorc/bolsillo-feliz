@@ -27,6 +27,7 @@ import { useFetchApi } from "@/modules/core/hooks/useFetchApi";
 import type { ApiResponse } from "@/modules/auth/types/auth";
 import { useTransaction } from "@/modules/dashboard/stores/useTransaction";
 import { useGetSummary } from "@/modules/dashboard/stores/useGetSummary";
+import { API_URL } from "@/constants/api";
 
 interface Props {
   handleClose: () => void;
@@ -98,7 +99,7 @@ const FormExpense = ({ handleClose }: Props) => {
 
     try {
       const token = localStorage.getItem("token");
-      await request("http://localhost:3000/transactions", {
+      await request(`${API_URL}/transactions`, {
         method: "POST",
         token: token || undefined,
         body: data,

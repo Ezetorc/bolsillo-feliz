@@ -28,11 +28,11 @@ export const useTransactionFilters = (transactions: Transaction[]) => {
         !filters.category || transaction.category === filters.category;
 
       const matchesPaymentMethod =
-        !filters.payment_method ||
-        transaction.payment_method === filters.payment_method;
+        !filters.paymentMethod ||
+        transaction.paymentMethod === filters.paymentMethod;
 
       const matchesType =
-        filters.type === "all" || transaction.type === filters.type;
+        filters.type === "all" || transaction.type.toLowerCase() === filters.type;
 
       const matchesDateFrom =
         !filters.date_from ||
